@@ -1,0 +1,50 @@
+#SignIn
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.497);
+    color: #0A2647;
+    
+    position: absolute;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+    height: 60vh ;
+    width: 35vw ;
+    padding: 40px;
+    border-radius: 60px;
+    border: 20px solid rgba(44, 116, 179, 0.819);
+    box-shadow: 0px 10px 20px 4px rgba(0, 0, 0, 0.437);
+    gap:5vh;
+}
+
+#SignIn>h1{
+    margin: 0px;
+    font-family: cursive;
+    font-size: 2.5vw;
+}
+
+#SignIn>span{
+
+    font-family: cursive;
+    font-size: 1.3vw;
+    margin-bottom: 4vh;
+}
+
+.SignInC1
+{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../Pages/logo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(10px);
+    background-size: cover;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+   align-items: center;
+}
