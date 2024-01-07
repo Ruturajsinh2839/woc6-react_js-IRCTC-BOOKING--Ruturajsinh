@@ -18,7 +18,7 @@ function Navbar()
                 <a href="#">Home </a>
                 <a href="#">Book List</a>
                 <a href="#">About us</a>
-               <AccountCircleRoundedIcon sx={{fontSize:"50px",":hover":{fontSize:"70px",color:"#2C74B3"}}}/>
+               <AccountCircleRoundedIcon sx={{fontSize:"50px",":hover":{fontSize:"40px",color:"#2C74B3"}}}/>
                 </div>
 
            

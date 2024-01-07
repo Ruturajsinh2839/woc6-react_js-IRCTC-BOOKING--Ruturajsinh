@@ -5,13 +5,18 @@ body
 }
 #nav{
     
-    background-color: #0A2647;
+    /* background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);; */
     color: white;
-    
+    /* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
+    background: linear-gradient(90deg, rgba(44,116,179,1) 46%, rgba(32,82,149,1) 90%);
     display: flex;
     justify-content: start;
     align-items: center;
     gap:45vw;
+    
+    /* position : sticky; */
+    /* top : 0px; */
+
 }
 .c1{
     display: flex;
@@ -53,7 +58,7 @@ body
 .c2>a:hover
 {
     display: flex;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     justify-content: center;
     color: #2C74B3;
     

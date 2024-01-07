@@ -1,7 +1,11 @@
 #footer
 {
-    background-color: #2c74b3a1;
+    
+    background: rgb(20,66,114);
+background: linear-gradient(90deg, rgba(20,66,114,1) 8%, rgba(44,116,179,1) 41%, rgba(32,82,149,1) 91%);
+    /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); */
     display: flex;
+    color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -21,7 +25,7 @@
     margin-top: 1%;
     padding-bottom: 1%;
     font-size: 1.5vw;
-    gap:50vw;
+    gap:40vw;
     border-bottom: 1px solid black;
 }
 

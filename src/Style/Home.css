@@ -1,0 +1,83 @@
+.welcome {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  justify-content: center;
+  height: 80vh;
+  width: 98.7vw;
+
+  /* background-color: aqua; */
+  /* background-image: linear-gradient(to right, #e2e5ea 0%, #03ffff 100%); */
+  background: linear-gradient(
+    6deg,
+    rgba(24, 192, 232, 1) 42%,
+    rgba(255, 255, 255, 1) 90%
+  );
+  
+  border-bottom-left-radius: 90vw;
+  border-bottom-right-radius: 90vw;
+  align-items: center;
+  gap: 5vw;
+
+  
+}
+
+.welcome > .w1 {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 1.3vw;
+  height: 40vh;
+  width: 30vw;
+}
+.welcome > .w2 > img {
+  height:30vw;
+  width:40vw;
+  border-top-right-radius: 20vw;
+  border-bottom-left-radius: 20vw;
+}
+
+.SearchBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:40vh;
+  width:40vw ;
+  gap:5vh;
+}
+
+.S1>h1{
+  font-family: cursive;
+  font-size: 2vw;
+
+}
+
+.S1
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.S3{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.S2
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 40vw;
+  gap:5vh;
+}
+
