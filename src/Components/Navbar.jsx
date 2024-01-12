@@ -1,11 +1,25 @@
 import React from "react";
 import "../Style/Navbar.css";
 import "./logo.jpg";
+import { Button } from "@mui/material";
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-
+import { signOut } from "firebase/auth";
+import { auth } from "../Config/Irctc_booking";
 
 function Navbar()
 {
+    const handleSignout = async () =>
+    {
+        try
+        {
+            await signOut(auth);
+            window.location.href="/signin";
+        }
+        catch(err)
+        {
+            alert(err.code);
+        }
+    }
     return <>
      <div id="nav">
            <div className="c1">
@@ -15,10 +29,24 @@ function Navbar()
            
             
             <div className="c2">
-                <a href="#">Home </a>
-                <a href="#">Book List</a>
+                <a href="/">Home </a>
+                <a href="/Booklist">Book List</a>
                 <a href="#">About us</a>
                <AccountCircleRoundedIcon sx={{fontSize:"50px",":hover":{fontSize:"40px",color:"#2C74B3"}}}/>
+               <Button
+          sx={{
+            flex:"1",
+            width: "10px",
+            height: "6vh",
+            fontFamily: "cursive",
+            fontSize: "1vw",
+            borderRadius: "20px",
+          }}
+          variant="contained"
+          onClick={handleSignout}
+        >
+          Sign out
+        </Button>
                 </div>
 
            

@@ -12,10 +12,11 @@ body
     display: flex;
     justify-content: start;
     align-items: center;
-    gap:45vw;
+    gap:30vw;
     
-    /* position : sticky; */
-    /* top : 0px; */
+    position : sticky;
+    top : 0px;
+    z-index: 2;
 
 }
 .c1{
@@ -37,13 +38,14 @@ body
 }
 .c2
 {
+    flex: 1;
     width: 40%;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     /* flex-direction: column; */
-    gap:10%;
+    gap:5vw;
 }
 
 .c2>a{
@@ -52,7 +54,7 @@ body
     color: white;
     text-decoration: none;
     text-shadow: 3px 4px 6px #000000;
-    font-size: 1.8vw;
+    font-size: 1.2vw;
 }
 
 .c2>a:hover

@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState}from "react";
 import LockPersonRoundedIcon from "@mui/icons-material/LockPersonRounded";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -7,8 +7,43 @@ import KeyIcon from "@mui/icons-material/Key";
 import Button from "@mui/material/Button";
 import "../Style/Sign_in.css";
 import { motion } from "framer-motion";
+import { auth } from "../Config/Irctc_booking";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function SignIn() {
+  const [user,setUser]=useState(
+    {email:"",password:""}
+  );
+
+  function handlechange(event) {
+    const { name, value } = event.target;
+
+    setUser((prev) => {
+      return { ...prev, [name]: value };
+    });
+    
+  }
+  
+  // if(auth?.currentUser===null)
+  // {
+  //   window.location.href="/signin";
+  // }
+  // else
+  // {
+  //   window.location.href="/";
+  // }
+
+  async function Sign_IN()
+  {
+    try{
+      const respose= await signInWithEmailAndPassword(auth, user.email, user.password);
+      window.location.href="/";
+    }
+    catch(err)
+    {
+      alert(err.code);
+    }
+  }
   return (
     <>
       <motion.div  animate={{ x: 20 }}
@@ -35,6 +70,8 @@ function SignIn() {
             id="input-with-sx"
             label="Email"
             variant="standard"
+            onChange={handlechange}
+            name="email"
           />
         </Box>
 
@@ -45,7 +82,9 @@ function SignIn() {
             id="input-with-sx"
             label="Password"
             variant="standard"
+            onChange={handlechange}
             type="password"
+            name="password"
           />
         </Box>
 
@@ -58,6 +97,7 @@ function SignIn() {
             borderRadius: "20px",
           }}
           variant="contained"
+          onClick={Sign_IN}
         >
           Sign In
         </Button>

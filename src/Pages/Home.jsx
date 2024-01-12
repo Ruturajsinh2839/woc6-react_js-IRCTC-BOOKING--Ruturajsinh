@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import logo from "../Components/logo.jpg";
@@ -6,7 +6,7 @@ import { motion as m } from "framer-motion";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import "../Style/Home.css";
-import Railway_Station from "../Station_data";
+import Railway_Station from "../RailwayStations.js";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Box from "@mui/material/Box";
@@ -24,6 +24,13 @@ import Select from "@mui/material/Select";
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import CategoryIcon from '@mui/icons-material/Category';
 import { Button } from "@mui/material";
+import Axios from "axios";
+import Ticket from "../Components/Ticket";
+import T1 from "../Ticket.js";
+import { auth } from "../Config/Irctc_booking.js";
+import dayjs from "dayjs";
+// import React, { useEffect, useState } from "react";
+// const rail = require("indian-rail-api");
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -41,6 +48,81 @@ function Home() {
   const loading1 = open1 && options.length === 0;
   const [categories, setCategories] = React.useState("");
   const [Classes,setClasses]=React.useState("");
+  const [lod1,setlod]=React.useState(false);
+  const [date1, setDate] = useState(new Date());
+  const [data, setData] = React.useState({
+    from:"",
+    to:"",
+    date:"",
+    category:"",
+    allclasses:"",
+  });
+  const handleOptionSelect = (event, value) => {
+    // Handle the selected option, you can set it to state or perform any other action
+    data.to=value.code;
+  };
+
+  const handleOptionSelect1 = (event, value) => {
+    // Handle the selected option, you can set it to state or perform any other action
+    data.from=value.code;
+  };
+ 
+  // const [h,setdata]=React.useState([]);
+  const h=T1.data;
+  
+  function handledata(e)
+  {
+    console.log(e.target);
+    const {name,value}=e.target;
+    
+    
+    setData((prev)=>{
+      return {...prev,[name]:value}
+    });
+    console.log(data);
+
+  }
+  const handleDateChange = (date) => {
+    console.log('Selected Date:', date);
+    // setDate(dayjs(date).format('DD-MM-YYYY'));
+    data.date=dayjs(date).format('YYYY-MM-DD');
+    console.log(data);
+  };
+
+
+  
+ 
+
+
+
+
+async function handlesubmit(){
+// const R = {
+//   method: 'GET',
+//   url: 'https://irctc1.p.rapidapi.com/api/v3/trainBetweenStations',
+//   params: {
+//     fromStationCode: data.from,
+//     toStationCode: data.to,
+//     dateOfJourney: data.date
+//   },
+//   headers: {
+//     'X-RapidAPI-Key': '9320b84a1fmsh23b0d1a40cd30adp1838f4jsn0c82d5375085',
+//     'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
+//   }
+// };
+
+// try {
+// 	const response = await Axios.request(R);
+//   console.log(response.data.data);
+// 	setdata(response.data.data);
+//   setlod(true);
+// } catch (error) {
+// 	console.error(error);
+// }
+setlod(true);
+
+
+}
   const handleChange = (event) => {
     setCategories(event.target.value);
   };
@@ -98,6 +180,8 @@ function Home() {
     }
   }, [open1]);
 
+ 
+
   return (
     <>
       <Navbar />
@@ -111,7 +195,7 @@ function Home() {
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="welcome"
-          style={{ "@media(max-width:720px)": { flexDirection: "column" } }}
+          style={{ "@media(maxWidth:720px)": { flexDirection: "column" } }}
         >
           <m.div
             className="w1"
@@ -166,12 +250,12 @@ function Home() {
                 setOpen(false);
               }}
               isOptionEqualToValue={(option, value) =>
-                option.properties.name === value.properties.name
+                option.name === value.name
               }
               options={options}
               loading={loading}
               autoHighlight
-              getOptionLabel={(option) => option.properties.name}
+              getOptionLabel={(option) => option.name}
               renderOption={(props, option) => (
                 <Box
                   component="li"
@@ -186,10 +270,10 @@ function Home() {
                   }}
                   {...props}
                 >
-                  <h3 style={{ margin: "0px" }}>
+                  <p style={{ margin: "0px" }}>
                     {" "}
-                    {option.properties.name} - {option.properties.code}
-                  </h3>
+                    {option.name} - {option.code}
+                  </p>
                   <p
                     style={{
                       fontFamily: "cursive",
@@ -197,12 +281,14 @@ function Home() {
                       margin: "0px",
                     }}
                   >
-                    {option.properties.state}
+                    {/* {option.properties.state} */}
                   </p>
                 </Box>
               )}
               renderInput={(params) => (
                 <TextField
+                name="from"
+                onChange={handledata}
                   id="outlined-start-adornment"
                   sx={{ width: "30vw" }}
                   {...params}
@@ -220,18 +306,19 @@ function Home() {
                   }
                   inputProps={{
                     ...params.inputProps,
-                    endAdornment: (
+                    endadornment: (
                       <React.Fragment>
                         {loading ? (
                           <CircularProgress color="inherit" size={20} />
                         ) : null}
-                        {params.InputProps.endAdornment}
+                        {params.InputProps.endadornment}
                       </React.Fragment>
                     ),
                     // autoComplete: "new-password",
                   }}
                 />
               )}
+              onChange={handleOptionSelect1}
             />
             <SwapVertIcon
               sx={{
@@ -252,12 +339,12 @@ function Home() {
                 setOpen1(false);
               }}
               isOptionEqualToValue={(option, value) =>
-                option.properties.name === value.properties.name
+                option.name === value.name
               }
               options={options}
               loading={loading1}
               autoHighlight
-              getOptionLabel={(option) => option.properties.name}
+              getOptionLabel={(option) => option.name}
               renderOption={(props, option) => (
                 <Box
                   component="li"
@@ -272,10 +359,10 @@ function Home() {
                   }}
                   {...props}
                 >
-                  <h3 style={{ margin: "0px" }}>
+                  <p  name="to" style={{ margin: "0px" }}>
                     {" "}
-                    {option.properties.name} - {option.properties.code}
-                  </h3>
+                    {option.name} - {option.code}
+                  </p>
                   <p
                     style={{
                       fontFamily: "cursive",
@@ -283,12 +370,16 @@ function Home() {
                       margin: "0px",
                     }}
                   >
-                    {option.properties.state}
+                    {/* {option.properties.state} */}
                   </p>
                 </Box>
               )}
+             
               renderInput={(params) => (
                 <TextField
+                 
+                 
+                
                   sx={{ width: "30vw" }}
                   {...params}
                   label={
@@ -303,26 +394,29 @@ function Home() {
                       <LocationOnIcon /> To
                     </p>
                   }
+                  
                   inputProps={{
                     ...params.inputProps,
-                    endAdornment: (
+                    endadornment: (
                       <React.Fragment>
                         {loading1 ? (
                           <CircularProgress color="inherit" size={20} />
                         ) : null}
-                        {params.InputProps.endAdornment}
+                        {params.InputProps.endadornment}
                       </React.Fragment>
                     ),
                   }}
+
                 />
               )}
+              onChange={handleOptionSelect}
             />
           </div>
 
           <div className="S2">
-            <LocalizationProvider  dateAdapter={AdapterDayjs}>
-              <DemoContainer  components={["DatePicker"]}>
-                <DatePicker sx={{ width: "30vw" }} label={<p style={
+            <LocalizationProvider   dateAdapter={AdapterDayjs}>
+              <DemoContainer  name="date"  components={["DatePicker"]}>
+                <DatePicker defaultValue={data.date} onChange={handleDateChange} sx={{ width: "30vw" }} label={<p style={
                   { fontFamily: "cursive",
                   fontWeight: "600",
                   margin: "0px",color:"Highlight"}
@@ -335,9 +429,11 @@ function Home() {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={categories}
+                value={data.category}
+                // placeholder={}
                 label="Categories"
-                onChange={handleChange}
+                name="category"
+                onChange={handledata}
               >
                 <MenuItem value={"GENERAL"}>GENERAL</MenuItem>
                 <MenuItem value={"LADIES"}>LADIES</MenuItem>
@@ -355,28 +451,20 @@ function Home() {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={Classes}
-                label="classes"
-                onChange={handleChange1}
+                value={data.allclasses}
+                name="allclasses"
+                onChange={handledata}
               >
-                <MenuItem value={"Anubhuti Class (EA)"}>
-                  Anubhuti Class (EA)
-                </MenuItem>
-                <MenuItem value={"AC First Class (1A)"}>
-                  AC First Class (1A)
-                </MenuItem>
-                <MenuItem value={"Vistadome AC (EV)"}>
-                  Vistadome AC (EV)
-                </MenuItem>
-                <MenuItem value={"Exec. Chair Car (EC)"}>Exec. Chair Car (EC)</MenuItem>
-                <MenuItem value={"AC 2 Tier (2A)"}>AC 2 Tier (2A)</MenuItem>
-                <MenuItem value={"First Class (FC)"}>First Class (FC)</MenuItem>
-                <MenuItem value={"AC 3 Tier (3A)"}>AC 3 Tier (3A)</MenuItem>
-                <MenuItem value={"Vistadome Non AC (VS)"}>Vistadome Non AC (VS)</MenuItem>
-                <MenuItem value={"Second Sitting (2S)"}>Second Sitting (2S)</MenuItem>
-                <MenuItem value={"AC Chair car (CC)"}>AC Chair car (CC)</MenuItem>
-                <MenuItem value={"Sleeper (SL)"}>Sleeper (SL)</MenuItem>
-                <MenuItem value={"AC 3 Economy (3E)"}>AC 3 Economy (3E)</MenuItem>
+  
+                <MenuItem value={"1A"}>AC First Class (1A)</MenuItem>
+                <MenuItem value={"EC"}>Exec. Chair Car (EC)</MenuItem>
+                <MenuItem value={"2A"}>AC 2 Tier (2A)</MenuItem>
+                <MenuItem value={"FC"}>First Class (FC)</MenuItem>
+                <MenuItem value={"3A"}>AC 3 Tier (3A)</MenuItem>
+                <MenuItem value={"2S"}>Second Sitting (2S)</MenuItem>
+                <MenuItem value={"CC"}>AC Chair car (CC)</MenuItem>
+                <MenuItem value={"SL"}>Sleeper (SL)</MenuItem>
+                <MenuItem value={"3E"}>AC 3 Economy (3E)</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -392,10 +480,36 @@ function Home() {
             marginBottom:"10px"
           }}
           variant="contained"
+          onClick={handlesubmit}
         >
           Search
         </Button>
         </div>
+         {lod1?( <div style={{padding:"3vw"}} className="T5">
+        {
+           h.map((e)=>
+            ( e.class_type.includes(data.allclasses)?(<Ticket 
+              key ={e.id}
+              train_name={e.train_name}
+              train_number={e.train_number}
+              train_date={e.train_date}
+              from_std={e.from_std}
+              to_sta={e.to_sta} 
+              run_days={e.run_days}
+              duration={e.duration}
+              class_type={e.class_type}
+              to_station_name={e.to_station_name}
+              from_station_name={e.from_station_name}
+              paid={false}
+              allclasses={data.allclasses}
+              category={data.category}
+
+              />):(<></>)
+              
+            ))
+          }
+        </div>):(<div></div>)}
+       
       </div>
 
       <Footer />

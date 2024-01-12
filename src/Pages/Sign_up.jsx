@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LockPersonRoundedIcon from "@mui/icons-material/LockPersonRounded";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -7,8 +7,38 @@ import KeyIcon from "@mui/icons-material/Key";
 import Button from "@mui/material/Button";
 import "../Style/Sign_in.css";
 import { motion } from "framer-motion";
+import { auth } from "../Config/Irctc_booking";
+import { createUserWithEmailAndPassword} from "firebase/auth";
 
 function SignUp() {
+   
+  const [user,setUser]=useState(
+    {email:"",password:""}
+  );
+
+  function handlechange(event) {
+    const { name, value } = event.target;
+
+    setUser((prev) => {
+      return { ...prev, [name]: value };
+    });
+    
+  }
+
+  async function Sign_up()
+  {
+    try{
+      const respose= await createUserWithEmailAndPassword(auth, user.email, user.password);
+      alert("Account Is Created");
+      window.location.href="/"
+    }
+    catch(err)
+    {
+      alert(err.code);
+      console.error(err);
+    }
+  }
+
   return (
     <>
       <motion.div  animate={{ x: 20 }}
@@ -34,6 +64,9 @@ function SignUp() {
             sx={{ width: "20vw", color: "white" }}
             id="input-with-sx"
             label="Email"
+           
+            name="email"
+            onChange={handlechange}
             variant="standard"
           />
         </Box>
@@ -45,7 +78,9 @@ function SignUp() {
             id="input-with-sx"
             label="Password"
             variant="standard"
+            onChange={handlechange}
             type="password"
+            name="password"
           />
         </Box>
 
@@ -57,6 +92,7 @@ function SignUp() {
             fontSize: "1.2vw",
             borderRadius: "20px",
           }}
+          onClick={Sign_up}
           variant="contained"
         >
           Sign Up
