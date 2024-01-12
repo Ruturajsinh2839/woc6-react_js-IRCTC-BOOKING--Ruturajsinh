@@ -105,10 +105,9 @@ async function handlesubmit(){
 //     toStationCode: data.to,
 //     dateOfJourney: data.date
 //   },
-//   headers: {
-//     'X-RapidAPI-Key': '9320b84a1fmsh23b0d1a40cd30adp1838f4jsn0c82d5375085',
-//     'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
-//   }
+//    headers: {
+//  'X-RapidAPI-Key': process.env.X_RapidAPI_Key 
+//     'X-RapidAPI-Host': process.env.X_RapidAPI_Host,   }
 // };
 
 // try {

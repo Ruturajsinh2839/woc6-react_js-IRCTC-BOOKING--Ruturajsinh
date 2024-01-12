@@ -3,13 +3,13 @@ import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDEyz20zVWv7oHxRgfUqbocadVeRGImksI",
-  authDomain: "irctc-booking-aea99.firebaseapp.com",
-  projectId: "irctc-booking-aea99",
-  storageBucket: "irctc-booking-aea99.appspot.com",
-  messagingSenderId: "527282345575",
-  appId: "1:527282345575:web:0a2ed2cbb60bd46d24e6c2",
-  measurementId: "G-N72HLG6BTV"
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId:process.env.projectId ,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId:process.env.measurementId
 };
 
 const app = initializeApp(firebaseConfig);
