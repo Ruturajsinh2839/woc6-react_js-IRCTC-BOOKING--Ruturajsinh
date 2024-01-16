@@ -45,7 +45,7 @@ function SignUp() {
  transition={{ type: "spring", stiffness: 100 }} className="SignInC1"> </motion.div>
       <motion.div
     //   animate={{ x:100}}
-    animate={{ x:-250, y:-250 }}
+    animate={{ x:"-50%", y:"-50%" }}
     transition={{ type: "spring", stiffness: 100 }}
     //   initial={{ x: "-100vh" }}
     //   

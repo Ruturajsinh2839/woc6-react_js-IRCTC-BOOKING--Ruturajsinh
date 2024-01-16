@@ -106,8 +106,8 @@ async function handlesubmit(){
 //     dateOfJourney: data.date
 //   },
 //    headers: {
-//  'X-RapidAPI-Key': process.env.X_RapidAPI_Key 
-//     'X-RapidAPI-Host': process.env.X_RapidAPI_Host,   }
+//  'X-RapidAPI-Key': process.env.REACT_APP_X_Rapid_API_Key,
+//     'X-RapidAPI-Host': process.env.REACT_APP_X_Rapid_API_Host   }
 // };
 
 // try {
@@ -183,7 +183,9 @@ setlod(true);
 
   return (
     <>
+   
       <Navbar />
+     
       <div className="Home">
         <m.div
           initial={{ opacity: 0, scale: 0.3 }}
@@ -207,7 +209,7 @@ setlod(true);
             }}
           >
             <h1>Welcome</h1>
-            <p>
+            <p style={{fontFamily: 'Merriweather',fontWeight:"400",padding:"20px"}}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatibus ex animi asperiores voluptates atque cum placeat
               corrupti id nulla culpa reiciendis eaque praesentium, totam itaque
@@ -232,6 +234,7 @@ setlod(true);
             <img src={logo} alt="logo" />
           </m.div>
         </m.div>
+
         <div className="S1">
         <h1>Search Your Journy</h1>
         <div className="S3">
@@ -483,8 +486,7 @@ setlod(true);
         >
           Search
         </Button>
-        </div>
-         {lod1?( <div style={{padding:"3vw"}} className="T5">
+        {lod1?( <div style={{padding:"3vw"}} className="T5">
         {
            h.map((e)=>
             ( e.class_type.includes(data.allclasses)?(<Ticket 
@@ -508,6 +510,8 @@ setlod(true);
             ))
           }
         </div>):(<div></div>)}
+        </div>
+        
        
       </div>
 

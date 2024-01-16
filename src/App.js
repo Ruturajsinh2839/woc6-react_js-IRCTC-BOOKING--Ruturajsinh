@@ -8,23 +8,42 @@ import { BrowserRouter } from "react-router-dom";
 import Ticket from "./Components/Ticket";
 import Book_list from "./Pages/Book_list";
 import Payment from "./Pages/Payment";
+import Profile from "./Pages/Profile";
+import { auth } from "./Config/Irctc_booking";
+import { useEffect, useState } from "react";
+import React from "react";
+
 function App() {
+  const [isLoggedIn, setIsLoggedIn] =useState(!!auth.currentUser);
+  console.log(isLoggedIn);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+    });
+
+    return () => unsubscribe(); // Cleanup the listener on component unmount
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/ticket" element={<Ticket />} />
-        <Route path="/Booklist" element={<Book_list />} />
-        <Route path="/payment" element={<Payment />} />
+        <Routes>
+          {!isLoggedIn ? (
+            <>
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
+             
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/ticket" element={<Ticket />} />
+              <Route path="/Booklist" element={<Book_list />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/profile" element={<Profile />} />
+            </>
+          )}
         </Routes>
       </BrowserRouter>
-      {/* <Navbar />
-
-      <Footer /> */}
-      {/* <SignIn /> */}
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { auth } from "../Config/Irctc_booking";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 function SignIn() {
+
   const [user,setUser]=useState(
     {email:"",password:""}
   );
@@ -50,8 +51,13 @@ function SignIn() {
  transition={{ type: "spring", stiffness: 100 }} className="SignInC1"> </motion.div>
       <motion.div
     //   animate={{ x:100}}
-    animate={{ x:-250, y:-250 }}
-    transition={{ type: "spring", stiffness: 100 }}
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1, x:"-50%", y:"-50%", }}
+    transition={{
+      duration: 0.8,
+      delay: 0.5,
+      ease: [0, 0.71, 0.2, 1.01]
+    }}
     //   initial={{ x: "-100vh" }}
     //   
        id="SignIn">
