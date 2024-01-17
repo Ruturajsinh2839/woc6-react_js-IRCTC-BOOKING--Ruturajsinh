@@ -6,6 +6,7 @@ import { TextField } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { db, auth } from "../Config/Irctc_booking";
 import { getDocs, collection, addDoc } from "firebase/firestore";
+import PaymentIcon from '@mui/icons-material/Payment';
 import "../Style/payment.css";
 import Alert from "@mui/material/Alert";
 function Payment() {
@@ -58,7 +59,7 @@ function Payment() {
               // placeholder="Placeholder"
               multiline
             />
-            <div className="P1">
+            <div className="pay1">
               <TextField
                 sx={{ width: "14vw" }}
                 id="outlined-textarea"
@@ -86,17 +87,16 @@ function Payment() {
 
             <Button
               sx={{
-                width: "10vw",
+                width: "15vw",
                 height: "6vh",
-                fontFamily: "cursive",
-                fontSize: "1.5vw",
-                borderRadius: "20px",
+                fontSize: "1vw",
+                borderRadius: "10px",
                 marginBottom: "10vh",
               }}
               variant="contained"
               onClick={Pay}
             >
-              Pay
+              Pay now <PaymentIcon/>
             </Button>
           </div>
         </div>

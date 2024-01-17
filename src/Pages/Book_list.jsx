@@ -40,7 +40,7 @@ function Book_list() {
     <>
       <Navbar />
 
-      <div  style={{height:"90%",}}className="Book_list">
+      <div  style={{height:"100%",}}className="Book_list">
         <h1>BOOK LIST</h1>
      { loading?(book.length!==0?(book.map((e,index) => (
      <motion.div

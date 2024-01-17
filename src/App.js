@@ -9,6 +9,7 @@ import Ticket from "./Components/Ticket";
 import Book_list from "./Pages/Book_list";
 import Payment from "./Pages/Payment";
 import Profile from "./Pages/Profile";
+import AboutUs from "./Pages/About_us";
 import { auth } from "./Config/Irctc_booking";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -40,6 +41,7 @@ function App() {
               <Route path="/Booklist" element={<Book_list />} />
               <Route path="/payment" element={<Payment />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/aboutus" element={<AboutUs />} />
             </>
           )}
         </Routes>

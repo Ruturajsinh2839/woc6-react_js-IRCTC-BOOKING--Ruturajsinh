@@ -16,13 +16,13 @@ function Footer() {
           <span>Get connected with us on social networks:</span>
           <div>
             <a href="#">
-              <LinkedInIcon sx={{fontSize:"3vw",color:"white"}} />
+              <LinkedInIcon sx={{fontSize:"3vw",color:"black"}} />
             </a>
             <a href="#">
-              <GitHubIcon sx={{fontSize:"3vw",color:"white"}} />
+              <GitHubIcon sx={{fontSize:"3vw",color:"black"}} />
             </a>
             <a href="#">
-              <InstagramIcon sx={{fontSize:"3vw",color:"white"}}/>
+              <InstagramIcon sx={{fontSize:"3vw",color:"black"}}/>
             </a>
             {/* <a href="#"><i class="fa fa-linkedin"></i></a> */}
           </div>
