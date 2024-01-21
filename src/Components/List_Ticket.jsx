@@ -109,7 +109,7 @@ function List_Ticket(props) {
                 style={{
                   width: "100%",
                   fontFamily: "Inter",
-                  fontSize: "3vh",
+                  fontSize: "2vh",
                   fontWeight: "700",
                 }}
               >

@@ -67,8 +67,8 @@ function Home() {
     data.from=value.code;
   };
  
-  // const [h,setdata]=React.useState([]);
-  const h=T1.data;
+ const [h,setdata]=React.useState([]);
+  // const h=T1.data;
   
   function handledata(e)
   {
@@ -97,28 +97,28 @@ function Home() {
 
 
 async function handlesubmit(){
-// const R = {
-//   method: 'GET',
-//   url: 'https://irctc1.p.rapidapi.com/api/v3/trainBetweenStations',
-//   params: {
-//     fromStationCode: data.from,
-//     toStationCode: data.to,
-//     dateOfJourney: data.date
-//   },
-//    headers: {
-//  'X-RapidAPI-Key': process.env.REACT_APP_X_Rapid_API_Key,
-//     'X-RapidAPI-Host': process.env.REACT_APP_X_Rapid_API_Host   }
-// };
+const R = {
+  method: 'GET',
+  url: 'https://irctc1.p.rapidapi.com/api/v3/trainBetweenStations',
+  params: {
+    fromStationCode: data.from,
+    toStationCode: data.to,
+    dateOfJourney: data.date
+  },
+   headers: {
+ 'X-RapidAPI-Key': process.env.REACT_APP_X_Rapid_API_Key,
+ 'X-RapidAPI-Host': process.env.REACT_APP_X_Rapid_API_Host   }
+};
 
-// try {
-// 	const response = await Axios.request(R);
-//   console.log(response.data.data);
-// 	setdata(response.data.data);
-//   setlod(true);
-// } catch (error) {
-// 	console.error(error);
-// }
-setlod(true);
+try {
+	const response = await Axios.request(R);
+  console.log(response.data.data);
+	setdata(response.data.data);
+  setlod(true);
+} catch (error) {
+	console.error(error);
+}
+// setlod(true);
 
 
 }

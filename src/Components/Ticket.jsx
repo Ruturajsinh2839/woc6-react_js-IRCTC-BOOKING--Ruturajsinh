@@ -15,6 +15,7 @@ function Ticket(props) {
   const navigate = useNavigate();
   const [book, setBook] = useState([]);
   var ticket_book = [];
+  var ticket_date =[];
   const [loading, setloading] = useState(false);
   const TicketRef = query(collection(db, "Ticket_book"),where("userID","==",auth?.currentUser?.uid));
 
@@ -37,6 +38,7 @@ function Ticket(props) {
   }, []);
 
   book.map((e) => ticket_book.push(e.train_number));
+  book.map((e) => ticket_book.push(e.train_date));
 
   function handleChange() {
     navigate("/payment", {
@@ -151,7 +153,7 @@ function Ticket(props) {
         </div>
         <div className="T4">
           {loading ? (
-            ticket_book.includes(props.train_number) ? (
+            ticket_book.includes(props.train_number)&&ticket_date.includes(props.train_date) ? (
               <>
                 <Button
                   style={{
