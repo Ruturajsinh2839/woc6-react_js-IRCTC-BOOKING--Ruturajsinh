@@ -45,10 +45,10 @@ function Footer() {
               <HomeIcon /> Daiict
             </p>
             <p>
-              <EmailIcon /> 202101146@daiict.ac.in
+              <EmailIcon /> xxxxxxxx@daiict.ac.in
             </p>
             <p>
-              <CallIcon /> +91 8799364279
+              <CallIcon /> +91 0009990090
             </p>
           </div>
         </div>
