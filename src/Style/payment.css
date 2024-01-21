@@ -1,33 +1,28 @@
-.Payment
-
-{
+.Payment {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:4vh;
+  gap: 4vh;
   font-family: cursive;
   /* color: white; */
   background-color: rgb(255, 255, 255);
- border-radius: 40px;
+  border-radius: 40px;
   height: 60vh;
   padding: 3%;
   width: 40vw;
   border: 10px solid rgba(15, 142, 220, 0.845);
 }
 
-.pay1
-{
-    display: flex;
-    flex-direction: row;
-    gap:2vw;
+.pay1 {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
 }
 
-.Payment>h2{
-    flex: 1;
-    margin: 0;
-    margin-top: 8vh;
-    font-size: 3vw;
+.Payment > h2 {
+  flex: 1;
+  margin: 0;
+  margin-top: 8vh;
+  font-size: 3vw;
 }
-
-

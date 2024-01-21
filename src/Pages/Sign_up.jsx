@@ -8,13 +8,10 @@ import Button from "@mui/material/Button";
 import "../Style/Sign_in.css";
 import { motion } from "framer-motion";
 import { auth } from "../Config/Irctc_booking";
-import { createUserWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function SignUp() {
-   
-  const [user,setUser]=useState(
-    {email:"",password:""}
-  );
+  const [user, setUser] = useState({ email: "", password: "" });
 
   function handlechange(event) {
     const { name, value } = event.target;
@@ -22,18 +19,18 @@ function SignUp() {
     setUser((prev) => {
       return { ...prev, [name]: value };
     });
-    
   }
 
-  async function Sign_up()
-  {
-    try{
-      const respose= await createUserWithEmailAndPassword(auth, user.email, user.password);
+  async function Sign_up() {
+    try {
+      const respose = await createUserWithEmailAndPassword(
+        auth,
+        user.email,
+        user.password
+      );
       alert("Account Is Created");
-      window.location.href="/"
-    }
-    catch(err)
-    {
+      window.location.href = "/";
+    } catch (err) {
       alert(err.code);
       console.error(err);
     }
@@ -41,19 +38,23 @@ function SignUp() {
 
   return (
     <>
-      <motion.div  animate={{ x: 20 }}
- transition={{ type: "spring", stiffness: 100 }} className="SignInC1"> </motion.div>
       <motion.div
-    //   animate={{ x:100}}
-    animate={{ x:"-50%", y:"-50%" }}
-    transition={{ type: "spring", stiffness: 100 }}
-    //   initial={{ x: "-100vh" }}
-    //   
-       id="SignIn">
-       
+        animate={{ x: 20 }}
+        transition={{ type: "spring", stiffness: 100 }}
+        className="SignInC1"
+      >
+        {" "}
+      </motion.div>
+      <motion.div
+        //   animate={{ x:100}}
+        animate={{ x: "-50%", y: "-50%" }}
+        transition={{ type: "spring", stiffness: 100 }}
+        //   initial={{ x: "-100vh" }}
+        //
+        id="SignIn"
+      >
         <LockPersonRoundedIcon sx={{ fontSize: "9vh", color: "#0A2647" }} />
-        
-        
+
         <h1>Create Account</h1>
 
         <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -64,7 +65,6 @@ function SignUp() {
             sx={{ width: "20vw", color: "white" }}
             id="input-with-sx"
             label="Email"
-           
             name="email"
             onChange={handlechange}
             variant="standard"
@@ -99,7 +99,7 @@ function SignUp() {
         </Button>
 
         <span>
-         Have an Account ? <a href="/signin">SIGNIN</a>
+          Have an Account ? <a href="/signin">SIGNIN</a>
         </span>
       </motion.div>
     </>

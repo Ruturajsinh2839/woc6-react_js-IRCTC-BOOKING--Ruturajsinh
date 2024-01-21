@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import LockPersonRoundedIcon from "@mui/icons-material/LockPersonRounded";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -11,10 +11,7 @@ import { auth } from "../Config/Irctc_booking";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 function SignIn() {
-
-  const [user,setUser]=useState(
-    {email:"",password:""}
-  );
+  const [user, setUser] = useState({ email: "", password: "" });
 
   function handlechange(event) {
     const { name, value } = event.target;
@@ -22,9 +19,8 @@ function SignIn() {
     setUser((prev) => {
       return { ...prev, [name]: value };
     });
-    
   }
-  
+
   // if(auth?.currentUser===null)
   // {
   //   window.location.href="/signin";
@@ -34,37 +30,42 @@ function SignIn() {
   //   window.location.href="/";
   // }
 
-  async function Sign_IN()
-  {
-    try{
-      const respose= await signInWithEmailAndPassword(auth, user.email, user.password);
-      window.location.href="/";
-    }
-    catch(err)
-    {
+  async function Sign_IN() {
+    try {
+      const respose = await signInWithEmailAndPassword(
+        auth,
+        user.email,
+        user.password
+      );
+      window.location.href = "/";
+    } catch (err) {
       alert(err.code);
     }
   }
   return (
     <>
-      <motion.div  animate={{ x: 20 }}
- transition={{ type: "spring", stiffness: 100 }} className="SignInC1"> </motion.div>
       <motion.div
-    //   animate={{ x:100}}
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1, x:"-50%", y:"-50%", }}
-    transition={{
-      duration: 0.8,
-      delay: 0.5,
-      ease: [0, 0.71, 0.2, 1.01]
-    }}
-    //   initial={{ x: "-100vh" }}
-    //   
-       id="SignIn">
-       
+        animate={{ x: 20 }}
+        transition={{ type: "spring", stiffness: 100 }}
+        className="SignInC1"
+      >
+        {" "}
+      </motion.div>
+      <motion.div
+        //   animate={{ x:100}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
+        transition={{
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+        //   initial={{ x: "-100vh" }}
+        //
+        id="SignIn"
+      >
         <LockPersonRoundedIcon sx={{ fontSize: "9vh", color: "#0A2647" }} />
-        
-        
+
         <h1>Sign In</h1>
 
         <Box sx={{ display: "flex", alignItems: "flex-end" }}>

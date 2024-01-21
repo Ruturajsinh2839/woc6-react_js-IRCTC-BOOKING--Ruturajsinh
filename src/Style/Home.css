@@ -1,23 +1,20 @@
-
-body
-{
+body {
   /* background: rgb(235,235,235);
   background: linear-gradient(193deg, rgba(235,235,235,1) 30%, rgba(7,1,1,1) 52%); */
-  background: rgb(233,241,244);
-background: linear-gradient(173deg, rgba(233,241,244,1) 25%, rgba(0,171,228,1) 57%);
-
+  background: rgb(233, 241, 244);
+  background: linear-gradient(
+    173deg,
+    rgba(233, 241, 244, 1) 25%,
+    rgba(0, 171, 228, 1) 57%
+  );
 }
 .welcome {
-  
-
   display: flex;
   /* flex-wrap: wrap; */
   flex-direction: row;
   justify-content: center;
   height: 80vh;
   width: 98.7vw;
- 
-  
 
   /* background-color: aqua; */
   /* background-image: linear-gradient(to right, #e2e5ea 0%, #03ffff 100%); */
@@ -27,23 +24,21 @@ background: linear-gradient(173deg, rgba(233,241,244,1) 25%, rgba(0,171,228,1) 5
     rgba(255, 255, 255, 1) 90%
   );
    */
- 
+
   color: rgb(0, 7, 12);
- 
+
   border-bottom-left-radius: 90vw;
   border-bottom-right-radius: 90vw;
   align-items: center;
   gap: 5vw;
   z-index: 2;
-
-  
 }
 
 .welcome > .w1 {
   display: block;
   justify-content: center;
   align-items: center;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-weight: 700;
   font-size: 1.3vw;
   height: 40vh;
@@ -51,32 +46,29 @@ background: linear-gradient(173deg, rgba(233,241,244,1) 25%, rgba(0,171,228,1) 5
   z-index: 2;
 }
 .welcome > .w2 > img {
-  height:30vw;
-  width:40vw;
+  height: 30vw;
+  width: 40vw;
   border-top-right-radius: 20vw;
   border-bottom-left-radius: 20vw;
-  z-index:-2;
+  z-index: -2;
 }
 
-.SearchBox{
- 
+.SearchBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:40vh;
-  width:40vw ;
-  gap:5vh;
+  height: 40vh;
+  width: 40vw;
+  gap: 5vh;
 }
 
-.S1>h1{
-  font-family: 'Raleway';
+.S1 > h1 {
+  font-family: "Raleway";
   font-size: 2vw;
-
 }
 
-.S1
-{
+.S1 {
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   width: 80vw;
@@ -89,29 +81,26 @@ background: linear-gradient(173deg, rgba(233,241,244,1) 25%, rgba(0,171,228,1) 5
   gap: 2vh;
 }
 
-.S3{
+.S3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.S2
-{
+.S2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 40vh;
   width: 40vw;
-  gap:5vh;
+  gap: 5vh;
 }
 
-.Home
-{
+.Home {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-

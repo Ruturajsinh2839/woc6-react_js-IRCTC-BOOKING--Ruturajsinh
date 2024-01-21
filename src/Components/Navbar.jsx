@@ -7,7 +7,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "../Config/Irctc_booking";
 
 function Navbar() {
-
   const handleSignout = async () => {
     try {
       await signOut(auth);
@@ -27,7 +26,7 @@ function Navbar() {
           <h1> IRCTC </h1>
         </div>
 
-        <div className="c2"  >
+        <div className="c2">
           <a href="/">Home </a>
           <a href="/Booklist">Book List</a>
           <a href="/aboutus">About us</a>
@@ -40,7 +39,7 @@ function Navbar() {
                 borderBottom: "6px solid rgb(0, 162, 255)",
               },
             }}
-            onClick={(e)=>(window.location.href="/profile")}
+            onClick={(e) => (window.location.href = "/profile")}
           />
         </div>
       </div>

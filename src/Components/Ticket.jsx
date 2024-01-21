@@ -5,8 +5,8 @@ import "../Style/Ticket.css";
 import AddIcon from "@mui/icons-material/Add";
 import { motion as m } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { db,auth } from "../Config/Irctc_booking";
-import { getDocs, collection ,query,where} from "firebase/firestore";
+import { db, auth } from "../Config/Irctc_booking";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { useEffect } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -15,9 +15,12 @@ function Ticket(props) {
   const navigate = useNavigate();
   const [book, setBook] = useState([]);
   var ticket_book = [];
-  var ticket_date =[];
+  var ticket_date = [];
   const [loading, setloading] = useState(false);
-  const TicketRef = query(collection(db, "Ticket_book"),where("userID","==",auth?.currentUser?.uid));
+  const TicketRef = query(
+    collection(db, "Ticket_book"),
+    where("userID", "==", auth?.currentUser?.uid)
+  );
 
   useEffect(() => {
     const getTicket = async () => {
@@ -153,7 +156,8 @@ function Ticket(props) {
         </div>
         <div className="T4">
           {loading ? (
-            ticket_book.includes(props.train_number)&&ticket_date.includes(props.train_date) ? (
+            ticket_book.includes(props.train_number) &&
+            ticket_date.includes(props.train_date) ? (
               <>
                 <Button
                   style={{

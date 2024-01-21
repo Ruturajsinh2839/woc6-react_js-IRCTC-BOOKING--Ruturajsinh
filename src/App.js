@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar";
 import SignIn from "./Pages/Sign_in";
 import SignUp from "./Pages/Sign_up";
 import Home from "./Pages/Home";
-import { Route, Routes,Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Ticket from "./Components/Ticket";
 import Book_list from "./Pages/Book_list";
@@ -15,19 +15,17 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] =useState(!!auth.currentUser);
- 
+  const [isLoggedIn, setIsLoggedIn] = useState(!!auth.currentUser);
+
   console.log(isLoggedIn);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setIsLoggedIn(!!user);
-     
     });
 
     return () => unsubscribe(); // Cleanup the listener on component unmount
   }, []);
 
- 
   return (
     <div className="App">
       <BrowserRouter>
@@ -36,7 +34,6 @@ function App() {
             <>
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
-              
             </>
           ) : (
             <>
@@ -48,7 +45,6 @@ function App() {
               <Route path="/aboutus" element={<AboutUs />} />
             </>
           )}
-        
         </Routes>
       </BrowserRouter>
     </div>

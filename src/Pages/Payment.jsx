@@ -6,7 +6,7 @@ import { TextField } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { db, auth } from "../Config/Irctc_booking";
 import { getDocs, collection, addDoc } from "firebase/firestore";
-import PaymentIcon from '@mui/icons-material/Payment';
+import PaymentIcon from "@mui/icons-material/Payment";
 import "../Style/payment.css";
 import Alert from "@mui/material/Alert";
 function Payment() {
@@ -30,8 +30,7 @@ function Payment() {
         userID: auth?.currentUser?.uid,
       });
       alert(" Payment Successful!");
-    window.location.href = "/Booklist";
-      
+      window.location.href = "/Booklist";
     } catch (err) {
       alert(err.code);
       console.error(err);
@@ -96,7 +95,7 @@ function Payment() {
               variant="contained"
               onClick={Pay}
             >
-              Pay now <PaymentIcon/>
+              Pay now <PaymentIcon />
             </Button>
           </div>
         </div>

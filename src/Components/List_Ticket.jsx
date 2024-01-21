@@ -15,8 +15,15 @@ import StarBorder from "@mui/icons-material/StarBorder";
 import { Button } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import PaidIcon from "@mui/icons-material/Paid";
-import { db,auth } from "../Config/Irctc_booking";
-import { getDocs, collection,query, where,doc,deleteDoc } from "firebase/firestore";
+import { db, auth } from "../Config/Irctc_booking";
+import {
+  getDocs,
+  collection,
+  query,
+  where,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import "../Style/list.css";
 
 function List_Ticket(props) {
@@ -25,19 +32,16 @@ function List_Ticket(props) {
   const handleClick = () => {
     setOpen(!open);
   };
-  const canselTicket= async (e)=>{
-    const T2=doc(db,"Ticket_book",e);
-    try{
+  const canselTicket = async (e) => {
+    const T2 = doc(db, "Ticket_book", e);
+    try {
       await deleteDoc(T2);
       alert("Ticket Sucessfully Cansel");
-      window.location.href="/Booklist";
-    }catch(err)
-    {
+      window.location.href = "/Booklist";
+    } catch (err) {
       alert(err);
       console.error(err);
     }
-   
-    
   };
   return (
     <>
@@ -202,7 +206,7 @@ function List_Ticket(props) {
                     marginBottom: "10px",
                   }}
                   variant="contained"
-                  onClick={()=>canselTicket(props.id)}
+                  onClick={() => canselTicket(props.id)}
                 >
                   Cancel Ticket <CancelIcon />
                 </Button>
