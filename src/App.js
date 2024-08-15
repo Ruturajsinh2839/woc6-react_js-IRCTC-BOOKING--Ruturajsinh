@@ -32,7 +32,7 @@ function App() {
         <Routes>
           {!isLoggedIn ? (
             <>
-              <Route path="/" element={<Navigate to="/signin" />} />
+             {/* <Route path="/" element={<Navigate to="/signin" />} /> */}
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
             </>

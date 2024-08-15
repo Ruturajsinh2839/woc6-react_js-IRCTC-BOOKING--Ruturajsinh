@@ -89,7 +89,7 @@ function Book_list() {
                 <Card sx={{ maxWidth: "30vw", marginTop: 5, boxShadow: 20 }}>
                   <CardMedia
                     sx={{ height: "40vh", width: "30vw" }}
-                    image="https://assets.materialup.com/uploads/3bb5bf77-24cf-464b-bb0c-415cca344095/preview.jpg"
+                    image="https://stock.adobe.com/images/no-data-icon-thin-linear-no-data-outline-icon-isolated-on-white-background-line-vector-no-data-sign-symbol-for-web-and-mobile/472657366"
                     title="green iguana"
                   />
                   <CardContent>
