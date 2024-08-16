@@ -54,7 +54,7 @@ Once the installation is complete, you can start using the project by following 
 The home page of our train ticket booking website welcomes users and provides an overview of the available features. It showcases popular destinations, current offers, and a search form to find trains based on routes and travel dates.
 
 ```markdown
-![Alt Text](image/home.png)
+![Alt Text](https://github.com/Ruturajsinh2839/woc6-react_js-IRCTC-BOOKING--Ruturajsinh/blob/main/image/home.png)
 ```
 
 
