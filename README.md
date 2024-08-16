@@ -54,7 +54,7 @@ Once the installation is complete, you can start using the project by following 
 The home page of our train ticket booking website welcomes users and provides an overview of the available features. It showcases popular destinations, current offers, and a search form to find trains based on routes and travel dates.
 
 ```markdown
-![Alt Text](/image/home.png)
+![Alt Text](image/home.png)
 ```
 
 
@@ -62,37 +62,37 @@ The home page of our train ticket booking website welcomes users and provides an
 The profile page allows users to manage their personal information, preferences, and booking history. Users can update their contact details, view and cancel their booked tickets, and customize their profile settings.
 
 ```markdown
-![Alt Text](/image/profile.png)
+![Alt Text](image/profile.png)
 ```
 
 ## Payment Page
 The payment page is where users can securely make payments for their booked tickets. It provides various payment options, such as credit/debit cards, net banking, and digital wallets. Users can enter their payment details and complete the transaction.
 
 ```markdown
-![Alt Text](/image/payment.png)
+![Alt Text](image/payment.png)
 ```
 
 ## Ticket Search
 The ticket search page enables users to find trains based on their desired origin, destination, and travel dates. Users can enter the relevant information and click the search button to view the available trains. The search results display train details, including departure and arrival times, fares, and seat availability.
 
 ```markdown
-![Alt Text](/image/search.png)
+![Alt Text](image/search.png)
 ```
 ```markdown
-![Alt Text](/image/ticket.png)
+![Alt Text](image/ticket.png)
 ```
 ## Sign In
 The sign-in page allows users to log in to their accounts. Users can enter their credentials, such as username and password, to access the booking features of the website. Once logged in, users can proceed with booking tickets, managing their profile, and accessing other personalized features.
 
 ```markdown
-![Alt Text](/image/signin.png)
+![Alt Text](image/signin.png)
 ```
 
 ## Book List
 The book list page displays the user's booked tickets. It provides an overview of the booked tickets, including the train details, departure and arrival times, and seat information. Users can view and manage their booked tickets from this page.
 
 ```markdown
-![Alt Text](/image/booklist.png)
+![Alt Text](image/booklist.png)
 ```
 ## Technologies Used
 
